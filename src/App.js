@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -7,7 +7,7 @@ import Login from './Login';
 import { useStateValue } from './StateProvider';
 
 function App() {
-  const [{ user }, dispatch] = useStateValue(null);
+  const [{ user }] = useStateValue(null);
 
   return (
     <div className="app">

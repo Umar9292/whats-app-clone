@@ -20,7 +20,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
 
   const { roomId } = useParams();
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   useEffect(() => {
     if (roomId) {
@@ -86,10 +86,10 @@ const Chat = () => {
       <div className="chat__body">
         {messages.map(message => (
           <p
-            className={`chat__message ${message.name === user.displayName &&
+            className={`chat__message ${message.user === user.displayName &&
               'chat__reciever'}`}
           >
-            <span className="chat__name">{message.name}</span>
+            <span className="chat__name">{message.user}</span>
             {message.message}
             <span className="chat__timestamp">
               {new Date(message.timestamp?.toDate()).toUTCString()}

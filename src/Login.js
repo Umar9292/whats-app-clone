@@ -6,11 +6,12 @@ import { useStateValue } from './StateProvider';
 import { actionTypes } from './reducer';
 
 const Login = () => {
-  const [state, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
-  const signIn = async e => {
+  const signIn = async () => {
     try {
       const result = await auth.signInWithPopup(provider);
+      console.log(result.user);
       dispatch({
         type: actionTypes.SET_USER,
         user: result.user,
@@ -19,6 +20,7 @@ const Login = () => {
       alert(error.message);
     }
   };
+
   return (
     <div className="login">
       <div className="login__container">
