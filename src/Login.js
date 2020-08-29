@@ -11,7 +11,6 @@ const Login = () => {
   const signIn = async () => {
     try {
       const result = await auth.signInWithPopup(provider);
-      console.log(result.user);
       dispatch({
         type: actionTypes.SET_USER,
         user: result.user,
